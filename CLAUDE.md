@@ -5,6 +5,21 @@ When a user asks you to "run the workflow" or "start a new project" using this f
 **IMPORTANT: Automatic Skill Usage**
 Read `skills/SKILLS-INDEX.md` at the start of every project. This tells you which skills to apply automatically based on the project type and tech stack. You should use these skills transparently without requiring manual invocation from the user.
 
+**IMPORTANT: Global Skills Access**
+In addition to the local skills in this folder, you have access to global skills located at `~/.claude/skills/`. These include:
+- `/backup` - Backup all projects and config to GitHub
+- `/codex` - Code review using OpenAI Codex CLI
+- `/code-creator` - Write high-quality code following project patterns
+- `/autonomous-orchestrator` - Autonomously solve full-stack problems
+- `/figma-extract` - Extract design data from Figma
+- `/figma-to-flutter` - Convert Figma designs to Flutter code
+- `/learn-permissions` - Analyze permission patterns
+
+Use these global skills as needed throughout the workflow.
+
+**IMPORTANT: Project Location**
+All new projects MUST be created in `/Users/greg/projects/`. Never create projects directly in the home directory or other locations.
+
 ---
 
 ## PHASE 0: Check Setup
@@ -32,12 +47,13 @@ Once they give a name, create the project:
 
 2. Create new repo from template using gh CLI:
 ```bash
+cd /Users/greg/projects
 gh repo create [project-name] --template [GH_USER]/[TEMPLATE_REPO] --private --clone
 cd [project-name]
 ```
 
 3. Tell the user:
-> "Created your project at ~/[project-name] and on GitHub. You can access it from any device now. Let's start planning!"
+> "Created your project at ~/projects/[project-name] and on GitHub. You can access it from any device now. Let's start planning!"
 
 ---
 

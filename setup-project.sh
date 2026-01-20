@@ -5,12 +5,14 @@
 set -e
 
 if [ -z "$1" ]; then
-  echo "Usage: ./setup-project.sh /path/to/new-project"
-  echo "Example: ./setup-project.sh ~/projects/my-new-app"
+  echo "Usage: ./setup-project.sh project-name"
+  echo "Example: ./setup-project.sh my-new-app"
+  echo "Projects are created in ~/projects/"
   exit 1
 fi
 
-PROJECT_DIR="$1"
+# Always create projects in ~/projects/
+PROJECT_DIR="$HOME/projects/$1"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "Setting up Claude Code Build Workflow in: $PROJECT_DIR"
